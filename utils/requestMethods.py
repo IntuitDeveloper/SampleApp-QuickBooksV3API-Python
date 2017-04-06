@@ -9,6 +9,10 @@ def do_post(url, headers, payload, auth):
     response_data['content'] = req.content
     return response_data
 
+def get(url, headers, payload, auth):
+    req = requests.get(url, auth=auth, headers=headers, data=payload)
+    return req.content
+
 def request(req_data, req_context, method):
     headers = {'Accept': 'application/json', 'content-type': 'application/json; charset=utf-8', 'User-Agent': 'PythonSampleApp1'}
     payload = req_data['payload']

@@ -41,20 +41,20 @@ def index():
     access_token = access_token[0]
     global customer_list
     customer_list = excel.load_excel()
-    return render_template('index.html', 
+    return render_template('index.html',
         customer_dict=customer_list,
         title="QB Customer Leads",
         text_color=font_color)
 
 # Update leads in html after adding a customer to QBO handled here for simplicity
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['POST'])
 def update_table():
     customer_id = request.form['id']
     for customer in customer_list:
         if customer['Id'] == customer_id:
             # Create customer object, add customer to qbo and get response
             customer_obj = create_customer(customer)
-            response_data = add_customer(customer_obj, req_context)
+            response_data = add_customer(customer_obj, request_context)
             status_code = response_data['status_code']
             message =  response_data['message']
             global font_color
@@ -72,7 +72,7 @@ def update_table():
  
 @app.route('/auth')
 def auth():
-    return qbo.authorize(callback=url_for('oauth_authorized'))
+    return qbo.authorize(callback=url_for('oauth_authorized'))      
  
 @app.route('/reset-session')
 def reset_session():
@@ -91,13 +91,15 @@ def oauth_authorized(resp):
         return redirect(next_url)
     # Setting the session using flask session just for the simplicity of this Sample App. It's not the most secure way to do this.
     session['is_authorized'] = True
+    access_token = resp['oauth_token']
+    session['access_token'] = access_token
     session['realm_id'] = realm_id
     session['qbo_token'] = (
         resp['oauth_token'],
         resp['oauth_token_secret']
     )
-    global req_context
-    req_context = req_context()
+    global request_context
+    request_context = req_context()
     return redirect(url_for('index'))
  
 if __name__ == '__main__':
