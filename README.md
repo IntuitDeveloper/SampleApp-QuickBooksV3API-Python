@@ -1,3 +1,5 @@
+[![Sample Banner](views/Sample.png)][ss1]
+
 # Basic data import from Excel to QBO
 #### Sample App in Python that implements Connect to Quickbooks button and imports customer data from Excel to QBO company
 
@@ -41,3 +43,5 @@ Note: This app has been developed and tested for MacOS Sierra 10.12
 5. [configRead.py](utils/configRead.py) module deals with reading from config file
 6. [context.py](utils/context.py) class for request context object which has all tokens and realm required to make an API call
 7. [requestMethods.py](utils/requestMethods.py) module has post method for HTTP requests
+
+[ss1]: https://help.developer.intuit.com/s/samplefeedback?cid=9010&repoName=SampleApp-QuickBooksV3API-Python
