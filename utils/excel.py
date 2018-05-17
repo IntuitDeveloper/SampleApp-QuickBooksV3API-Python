@@ -1,10 +1,13 @@
+import os
 import openpyxl
-import configRead
 
-excel_file = configRead.get_filepath('../Leads.xlsx')
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
+APP_STATIC = os.path.join(APP_ROOT, '../Leads.xlsx')
 
-# Excel is loaded into a list of dictionaries
+excel_file = APP_STATIC
+
 def load_excel():
+    """Excel is loaded into a list of dictionaries"""
     wb = openpyxl.load_workbook(filename=excel_file)
     ws = wb['data']
 
@@ -25,9 +28,8 @@ def load_excel():
             dict_list.append(d)
     return dict_list
 
-# Update lead in excel worksheet and working dictionary
-# Removing from excel leaves a blank row in the excel
 def remove_lead(customer_list, customer_id):
+    """Update lead in excel worksheet and working dictionary; Removing from excel leaves a blank row in the excel"""
     wb = openpyxl.load_workbook(filename=excel_file)
     ws = wb['data']
     for row in ws.iter_rows(min_row=2, max_col=4):
