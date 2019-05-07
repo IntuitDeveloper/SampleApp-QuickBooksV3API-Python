@@ -5,7 +5,7 @@
 
 This sample app is meant to provide working example of how to make API calls to Quickbooks. Specifically, this sample application demonstrates the following:
 
-- Implementing OAuth to connect an application to a customer's QuickBooks Online company for both OAuth1 and OAuth2.
+- OAuth2 sample app for a QuickBooks Online company.
 - Creating a QB customer that are added from Excel file using Customer API.
 - Gets company data using CompanyInfo API
 
@@ -16,13 +16,11 @@ Please note that while these examples work, features not called out above are no
 2. A [developer.intuit.com](https://developer.intuit.com/) account
 3. An app on [developer.intuit.com](https://developer.intuit.com/) and the associated app keys:  
     - Client Id and Client Secret for OAuth2 apps; Configure the RedirectUri[http://localhost:5000/callback] in your app's Keys tab on the Intuit developer account, only Accounting scope needed  
-    - Consumer key and Consumer secret for OAuth1 apps
-4. This sample app uses several libraries listed in [requirements.txt](requirements.txt) which need to be installed including flask, flask_oauth, openpyxl, requests_oauthlib  
+4. This sample app uses several libraries listed in [requirements.txt](requirements.txt) which need to be installed including flask, openpyxl, requests_oauthlib  
 
 ## First Time Instructions
 1. Clone the GitHub repo to your computer
-2. Install libraries mentioned above in Requirements 4.
-3. Fill in your [config.py](config.py) file values by copying over from the keys section for your app
+2. Fill in your [config.py](config.py) file values by copying over from the keys section for your app
 
 ## Running the code
 1. cd to the project directory
