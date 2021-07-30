@@ -1,4 +1,4 @@
-[![Sample Banner](views/Sample.png)][ss1]
+[![Rate your Sample](views/Ratesample.png)][ss1][![Yes](views/Thumbup.png)][ss2][![No](views/Thumbdown.png)][ss3]
 
 # Data import from Excel to QBO
 #### Sample App in Python that implements Connect to Quickbooks button and imports customer data from Excel to QBO company.
@@ -41,4 +41,6 @@ Please note that while these examples work, features not called out above are no
 
 #### Note: For other OAuth2 services like Refresh token, Revoke token, etc, refer to [this](https://github.com/IntuitDeveloper/OAuth2PythonSampleApp) app
 
-[ss1]: https://help.developer.intuit.com/s/samplefeedback?cid=9010&repoName=SampleApp-QuickBooksV3API-Python
+[ss1]: #
+[ss2]: https://customersurveys.intuit.com/jfe/form/SV_9LWgJBcyy3NAwHc?check=Yes&checkpoint=SampleApp-QuickBooksV3API-Python&pageUrl=github
+[ss3]: https://customersurveys.intuit.com/jfe/form/SV_9LWgJBcyy3NAwHc?check=No&checkpoint=SampleApp-QuickBooksV3API-Python&pageUrl=github
